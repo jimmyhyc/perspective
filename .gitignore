@@ -177,3 +177,7 @@ rust/perspective-vieux/pkg
 rust/perspective-vieux/target
 rust/perspective-vieux/target2
 .emsdk
+
+# jupyterlab test artifacts
+packages/perspective-jupyterlab/test/config/jupyter/lab
+packages/perspective-jupyterlab/test/config/jupyter/migrated
