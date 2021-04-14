@@ -396,7 +396,18 @@ test.capture = function capture(name, body, {timeout = 60000, viewport = null, w
                     });
                 }
 
-                const screenshot = await page.screenshot();
+                let screenshot;
+
+                // To reduce flakiness on Jupyterlab, only screenshot the
+                // Perspective viewer that is output by the test and not the
+                // rest of the Jupyterlab UI.
+                if (jupyter) {
+                    const viewer = await page.$(".jp-OutputArea-output perspective-viewer:not([updating])");
+                    screenshot = await viewer.screenshot();
+                } else {
+                    screenshot = await page.screenshot();
+                }
+
                 // await page.close();
                 const hash = crypto
                     .createHash("md5")
