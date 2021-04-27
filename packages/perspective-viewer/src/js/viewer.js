@@ -43,6 +43,12 @@ import {COMPUTED_EXPRESSION_PARSER} from "./computed_expressions/computed_expres
 
 const PERSISTENT_ATTRIBUTES = ["selectable", "editable", "plugin", "computed-columns", "row-pivots", "column-pivots", "aggregates", "filters", "sort", "columns"];
 
+window.addEventListener("unhandledrejection", event => {
+    if (event.reason?.message === "View method cancelled") {
+        event.preventDefault();
+    }
+});
+
 /**
  * The HTMLElement class for `<perspective-viewer>` custom element.
  *

@@ -26,7 +26,7 @@ utils.with_server({}, () => {
             simple_tests.default();
             render_warning_tests.default("d3_y_bar");
         },
-        {root: path.join(__dirname, "..", "..", "..")}
+        {reload_page: false, root: path.join(__dirname, "..", "..", "..")}
     );
 
     describe.page(
@@ -35,7 +35,7 @@ utils.with_server({}, () => {
             simple_tests.default();
             render_warning_tests.default("d3_x_bar");
         },
-        {root: path.join(__dirname, "..", "..", "..")}
+        {reload_page: false, root: path.join(__dirname, "..", "..", "..")}
     );
 
     describe.page(
@@ -44,6 +44,6 @@ utils.with_server({}, () => {
             simple_tests.default();
             render_warning_tests.default("d3_y_bar");
         },
-        {root: path.join(__dirname, "..", "..", "..")}
+        {reload_page: false, root: path.join(__dirname, "..", "..", "..")}
     );
 });
